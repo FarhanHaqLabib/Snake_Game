@@ -22,7 +22,7 @@ This project is a simple version of the classic **Snake Game**, fully implemente
 The game demonstrates:
 
 - Real-time keyboard input without blocking
-- Basic use of structs (`gamestate`, `position`)
+- Basic use of structs (`point`, `snake`)
 - Enums to manage directions
 - Console-based rendering with ASCII graphics
 - A game loop that updates continuously
@@ -36,10 +36,10 @@ We are developing this collaboratively with **GitHub version control**, ensuring
 
 - ✅ Snake moves in four directions: W, A, S, D keys
 - ✅ Detects collision with walls and ends the game
-- 🔄 Random food spawning (in progress)
-- 🔄 Score counter updates when food is eaten
-- 🔄 Snake grows longer after eating food
-- 🔄 Self-collision detection to end the game if the snake hits itself
+- ✅ Random food spawning (in progress)
+- ✅ Score counter updates when food is eaten
+- ✅ Snake grows longer after eating food
+- ✅ Self-collision detection to end the game if the snake hits itself
 
 ---
 
