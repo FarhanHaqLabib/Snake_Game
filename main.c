@@ -119,16 +119,23 @@ void logic(gamestate* game){
 
 }
 
-int main() {
-    gamestate game;
-    setup(&game);
+int main(){
+  srand(time(NULL));
+  setup();
 
-    while (!game.gameover) {
-        draw(&game);
-        input(&game);
-        logic(&game);
-        Sleep(100);
+  while(game_over == 0){
+    draw();
+    input();
+    logic();
+    Sleep(speed);
+  }
+  if (score > highscore) {
+        highscore = score;
+        save_highscore();
     }
 
+    printf("\nGame Over! Final Score: %d\n", score);
+    printf("Press any key to exit...\n");
+    _getch();
     return 0;
 }
