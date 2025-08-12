@@ -56,21 +56,37 @@ void clearScreen() {
     COORD coord = {0, 0};
     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 
-void draw(gamestate* game){
-    system("cls");
-    for (int i=0; i<WIDTH; i++){printf("-");}
-    printf("\n");
-
-    for(int y=0; y<HEIGHT; y++){
-        for(int x=0; x<WIDTH; x++){
-            if(x==0 || x==WIDTH-1){printf("|");}
-            else if(x == game->head.x && y == game->head.y){printf("O");}
-            else {printf(" ");}
+void draw(){
+  system("cls");
+  for(int y=0; y <= HEIGHT; y++){
+    for(int x=0; x<= WIDTH; x++){
+      if(x==0 || x==WIDTH || y==0 || y==HEIGHT){
+        printf("#");
+      }
+      else if(x == food.x && y == food.y){
+        printf("F");
+      }
+      else if(x == powerup.x && y == powerup.y){
+        printf("P");
+      }
+      else{
+        int is_snake = 0;
+        for(int i = 0; i < snake.length; i++){
+          if(snake.body[i].x == x && snake.body[i].y == y){
+            if(i==0) printf("O");
+            else printf("o");
+            is_snake = 1;
+            break;
+          }
         }
-        printf("\n");
+        if(is_snake == 0){
+          printf(" ");
+        }
+      }
     }
-        for (int i=0; i<WIDTH; i++){printf("-");}
-    printf("\nScore: %d\n", game->score);
+    printf("\n"); // Moved outside the inner loop
+  }
+  printf("Score: %d  Highscore: %d\n", score, highscore);
 }
 
 void input(gamestate* game){
