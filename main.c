@@ -89,6 +89,7 @@ void draw(){
   printf("Score: %d  Highscore: %d\n", score, highscore);
 }
 
+
 void input(gamestate* game){
     if(_kbhit()){
         switch(_getch()){
